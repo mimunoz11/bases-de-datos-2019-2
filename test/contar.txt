@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION contar()
+RETURNS INTEGER AS $$
+DECLARE
+    tupla RECORD;
+    count INTEGER;
+BEGIN
+    count = 0;
+    FOR tupla IN SELECT * FROM Personas LOOP
+        count = count + 1;
+    END LOOP;
+    RETURN count;
+END
+$$ language plpgsql

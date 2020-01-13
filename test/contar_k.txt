@@ -1,0 +1,6 @@
+CREATE OR REPLACE FUNCTION contar_k()
+RETURNS TABLE(cant_k BIGINT) AS $$
+BEGIN
+    RETURN QUERY SELECT COUNT(*) FROM Personas WHERE run LIKE '%k%';
+END
+$$ language plpgsql
